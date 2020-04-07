@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Text, View, TextInput, StyleSheet, Dimensions, Animated, TouchableOpacity, Alert } from 'react-native'
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+import { Text, View, TextInput, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
 
-
+const { width, height } =Dimensions.get('window')
 
 const { textBoxStyle, titleStyle, buttonStyle } = StyleSheet.create({
+
     textBoxStyle: {
         fontSize: 20,
         width: width * 0.75,
@@ -15,20 +14,22 @@ const { textBoxStyle, titleStyle, buttonStyle } = StyleSheet.create({
         height: 50,
         marginTop: '5%'
     },
-    titleStyle: {
 
-        fontSize: 50,
-        fontWeight: '300',
+    titleStyle: {
+        fontSize: 40,
+        fontWeight: '600',
         marginTop: 25,
 
     },
+
     buttonStyle: {
-        marginTop: 15,
+        marginTop: 25,
         backgroundColor: '#9999FF',
         width: width / 2,
         alignContent: 'center',
         padding: '5%',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 50
     }
 })
 
@@ -36,8 +37,8 @@ const { textBoxStyle, titleStyle, buttonStyle } = StyleSheet.create({
 export default class Login extends Component {
 
     state = {
-        email: 'Cybersoft@gmail.com',
-        password: 'cybersoft@123',
+        email: '123lnhvu',
+        password: '123456',
     }
     //Hàm lấy giá trị từ các text input
     handleChange = (name, value) => {
@@ -48,16 +49,16 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={[titleStyle]}>Login</Text>
+            <View style={{ flex:1, flexDirection: 'column', alignItems: 'center', justifyContent:'center'}}>
+                <Text style={[titleStyle]}>ĐĂNG NHẬP</Text>
                 {/*Sử dụng sự kiện onChangeText để bắt giá trị khi người dùng nhập vào */}
-                <TextInput style={[textBoxStyle]} autoFocus={true} placeholder='Email' onChangeText={this.handleChange.bind(this, "email")} defaultValue={'123lnhvu'} />
+                <TextInput style={[textBoxStyle]}placeholder='Email' defaultValue='123lnhvu' />
 
-                <TextInput style={[textBoxStyle]} secureTextEntry={true} autoFocus={true} placeholder='Password' onChangeText={(value) => { this.handleChange('password', value) }} defaultValue='123456' />
+                <TextInput style={[textBoxStyle]} secureTextEntry={true}  placeholder='Password'  defaultValue='123456' />
 
-                <TouchableOpacity onPress={this.handleSubmit}>
+                <TouchableOpacity>
                     <View style={[buttonStyle]}>
-                        <Text style={{ color: '#fff', fontSize: 20 }}>Login</Text>
+                        <Text style={{ color: '#fff', fontSize: 25 }}>Login</Text>
                     </View>
                 </TouchableOpacity>
             </View>
