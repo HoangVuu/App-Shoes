@@ -19,7 +19,6 @@ const { textBoxStyle, titleStyle, buttonStyle } = StyleSheet.create({
         fontSize: 40,
         fontWeight: '600',
         marginTop: 25,
-
     },
 
     buttonStyle: {
@@ -52,9 +51,9 @@ export default class Login extends Component {
             <View style={{ flex:1, flexDirection: 'column', alignItems: 'center', justifyContent:'center'}}>
                 <Text style={[titleStyle]}>ĐĂNG NHẬP</Text>
                 {/*Sử dụng sự kiện onChangeText để bắt giá trị khi người dùng nhập vào */}
-                <TextInput style={[textBoxStyle]}placeholder='Email' defaultValue='123lnhvu' />
+                <TextInput style={[textBoxStyle]}placeholder='Tên đăng nhập' defaultValue='123lnhvu' />
 
-                <TextInput style={[textBoxStyle]} secureTextEntry={true}  placeholder='Password'  defaultValue='123456' />
+                <TextInput style={[textBoxStyle]} secureTextEntry={true}  placeholder='Mật khẩu'  defaultValue='123456' />
 
                 <TouchableOpacity>
                     <View style={[buttonStyle]}>

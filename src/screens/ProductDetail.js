@@ -5,7 +5,7 @@ export default class ProductDetail extends Component {
     render() {
         return (
             <View>
-                <Text> textInComponent </Text>
+                <Text> Detail </Text>
             </View>
         )
     }
