@@ -20,7 +20,7 @@ export class Home extends Component {
           flex: 1,
           flexWrap: 'wrap',
           flexDirection: 'column',
-          padding: (width * 0.04) / 6,
+          padding: width * 0.01,
           backgroundColor: '#f5f5f5',
         }}>
         <FlatList
@@ -28,6 +28,7 @@ export class Home extends Component {
           style={{maginTop: '15%', backgroundColor: '#f5f5f5'}}
           data={this.props.productList}
           removeClippedSubviews
+          showsVerticalScrollIndicator={false}
           renderItem={({item}) => {
             return (
               <TouchableOpacity

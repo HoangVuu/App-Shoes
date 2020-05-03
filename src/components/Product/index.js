@@ -20,10 +20,10 @@ export class Product extends Component {
       <View
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
-          minHeight: 300,
-          width: width * 0.48,
+          // minHeight: 300,
+          width: width * 0.47,
           backgroundColor: 'white',
-          margin: (width * 0.04) / 6,
+          margin: width * 0.01,
           borderRadius: 10,
           shadowColor: '#000',
           shadowOffset: {
@@ -37,36 +37,45 @@ export class Product extends Component {
           source={{uri: shoes.img}}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            width: '100%',
+            width: '85%',
             height: 180,
             resizeMode: 'contain',
             transform: [{rotate: '-25deg'}],
           }}
         />
-        <View style={{paddingLeft: '5%'}}>
+        <View style={{ width: '75%', alignSelf: 'center',}}>
           <Text
             // eslint-disable-next-line react-native/no-inline-styles
             style={{
               fontWeight: 'bold',
               fontSize: 17,
               width: 'auto',
-              height: 70,
+              // height: 60,
               alignItems: 'flex-end',
             }}>
             {/* {shoes.tenSP} */}
-            {shoes.name}
+            {shoes.name} 
           </Text>
-          <Text style={{fontSize: 16, marginTop: 8, color: '#9999FF'}}>
+          <Text style={{fontSize: 16, marginBottom:10, color: '#9999FF'}}>
             {/* {shoes.gia} */}
             {shoes.price}
           </Text>
-          <TouchableOpacity onPress={this.addToCart}>
-            <View style={{backgroundColor: "red" }}>
-              <Text>Add to card</Text>
-            </View>
-          </TouchableOpacity>
-          {/* <Button style={{}} title="Add to card" onPress={this.addToCart} /> */}
         </View>
+        <TouchableOpacity onPress={this.addToCart} style={{paddingBottom: 10}}>
+          <View
+            style={{
+              backgroundColor: '#51A9FF',
+              alignSelf: 'center',
+              borderRadius: 20,
+              width: '75%',
+              height: 30,
+              justifyContent: 'center',
+            }}>
+            <Text style={{textAlign: 'center', color: 'white'}}>
+              ADD TO CART
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }

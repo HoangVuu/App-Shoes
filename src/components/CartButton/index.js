@@ -9,13 +9,17 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     marginRight: 20,
+    width: 42,
+  },
+  iconCart: {
+    top: 5,
   },
 
   badge: {
     position: 'absolute',
     top: 0,
-    right: 0,
-    backgroundColor: 'red',
+    right: 3,
+    backgroundColor: '#51A9FF',
     width: 20,
     height: 20,
     borderRadius: 10,
@@ -26,6 +30,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 20,
     fontWeight: '600',
+    
   },
 });
 
@@ -36,10 +41,10 @@ export class CartButton extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={StyleSheet.container} onPress={this.goToCard}>
-        <Icon name="shopping-cart" size={30} />
-        <View style={StyleSheet.badge}>
-          <Text style={StyleSheet.badgeText}>1212</Text>
+      <TouchableOpacity style={styles.container} onPress={this.goToCard}>
+        <Icon name="shopping-cart" style={styles.iconCart} size={30} />
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>12</Text>
         </View>
       </TouchableOpacity>
     );
