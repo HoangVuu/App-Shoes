@@ -5,7 +5,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <View>
-                <Text> textInComponent </Text>
+                <Text> textInComponent 11111</Text>
             </View>
         )
     }
