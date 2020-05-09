@@ -17,12 +17,13 @@ const reducer = (state = initialState, action) => {
         };
         state.push(cardItem);
       }
-      //2.Nếu có rồi:
+      //2.Nếu có rồi thay đổi quantity
       else {
         state[index].quantity++;
       }
       console.log('state2', state);
-      return state;
+      //immitable
+      return [...state]; // nếu dữ liệu là mảng, trả về mảng coppy của nó, redux mới so sánh được
     }
     default:
       return state;

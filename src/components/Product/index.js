@@ -43,7 +43,7 @@ export class Product extends Component {
             transform: [{rotate: '-25deg'}],
           }}
         />
-        <View style={{ width: '75%', alignSelf: 'center',}}>
+        <View style={{width: '75%', alignSelf: 'center'}}>
           <Text
             // eslint-disable-next-line react-native/no-inline-styles
             style={{
