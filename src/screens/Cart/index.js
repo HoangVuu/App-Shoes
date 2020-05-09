@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import CartItem, {CardItem} from '../../components/CartItem';
+import CartItem from '../../components/CartItem';
 import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 
@@ -28,7 +28,7 @@ export class Cart extends Component {
                 {/* onPress={() => {
                      viewDetail(item);
                    }}> */}
-                <CardItem key={item.product.id} card={item} />
+                <CartItem key={item.product.id} card={item} />
               </TouchableOpacity>
             );
           }}

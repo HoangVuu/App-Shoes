@@ -2,23 +2,58 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
-  Button,
   Image,
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  Alert,
 } from 'react-native';
 import {connect} from 'react-redux'; // cho phép truyền kết nối dữ liệu
+import createAction from '../../redux/actions';
 
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
-export class CardItem extends Component {
+class CardItem extends Component {
   decreaseQuantity = () => {
     this.props.dispatch({
       type: 'DECREASE_QUANTITY',
-      payload: this.props.item.product.id,
+      payload: this.props.card.product.id,
     });
   };
+
+  increaseQuantity = () => {
+    this.props.dispatch({
+      type: 'INCREASE_QUANTITY',
+      payload: this.props.card.product.id,
+    });
+  };
+
+  removeCartItem = () => {
+    // gui dispatch yêu cầu xóa
+    this.props.dispatch({
+      type: 'REMOVE_TO_CART',
+      payload: this.props.card.product.id,
+    });
+  };
+
+  showNotify = () => {
+    Alert.alert('sdfgh', 'Do you want to delete this product?', [
+      {text: 'Cancel', style: 'cancel'},
+      {text: 'OK', onPress: () => this.removeCartItem},
+    ]);
+  };
+
+  handleDecreseCard = () => {
+    if (this.props.card.quantity > 1) {
+      this.decreaseQuantity();
+    } else {
+      this.showNotify();
+    }
+  };
+
+  // componentDidUpdate(){
+
+  // }
 
   render() {
     const {card} = this.props;
@@ -34,7 +69,9 @@ export class CardItem extends Component {
 
           <View style={styles.total}>
             <View style={styles.quantityView}>
-              <TouchableOpacity style={{padding: 5}}>
+              <TouchableOpacity
+                style={{padding: 5}}
+                onPress={this.handleDecreseCard}>
                 <View style={styles.quantityBtn}>
                   <Text style={styles.sub}>-</Text>
                 </View>
@@ -43,7 +80,7 @@ export class CardItem extends Component {
               <Text>{card.quantity}</Text>
 
               <TouchableOpacity
-                onPress={this.decreaseQuantity}
+                onPress={this.increaseQuantity}
                 style={{padding: 5}}>
                 <View style={styles.quantityBtn}>
                   <Text style={styles.plus}>+</Text>
