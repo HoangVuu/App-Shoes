@@ -50,14 +50,11 @@ export class Product extends Component {
               fontWeight: 'bold',
               fontSize: 17,
               width: 'auto',
-              // height: 60,
               alignItems: 'flex-end',
             }}>
-            {/* {shoes.tenSP} */}
-            {shoes.name} 
+            {shoes.name}
           </Text>
           <Text style={{fontSize: 16, marginBottom:10, color: '#9999FF'}}>
-            {/* {shoes.gia} */}
             {shoes.price}
           </Text>
         </View>

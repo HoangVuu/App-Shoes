@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import CartItem, {CardItem} from '../../components/CartItem';
 import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
@@ -18,13 +18,13 @@ export class Cart extends Component {
       <View>
         <FlatList
           // eslint-disable-next-line react-native/no-inline-styles
-          style={{maginTop: '15%', backgroundColor: '#f5f5f5'}}
+          style={{backgroundColor: '#f5f5f5', marginTop: 5}}
           data={this.props.cardList}
           removeClippedSubviews
           renderItem={({item}) => {
             console.log(item.product.id);
             return (
-              <TouchableOpacity>
+              <TouchableOpacity style={styles.info}>
                 {/* onPress={() => {
                      viewDetail(item);
                    }}> */}
@@ -38,6 +38,24 @@ export class Cart extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  info: {
+    marginBottom: 5,
+    margin: '2%',
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingTop: 10,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    shadowOpacity: 0.2,
+    elevation: 6,
+  },
+});
 
 const mapStateToProps = state => {
   return {

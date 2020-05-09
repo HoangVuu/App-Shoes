@@ -6,8 +6,11 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import {connect} from 'react-redux'; // cho phép truyền kết nối dữ liệu
+
+const {width, height} = Dimensions.get('window');
 
 export class CardItem extends Component {
   decreaseQuantity = () => {
@@ -22,13 +25,31 @@ export class CardItem extends Component {
     return (
       <View style={styles.cardItemContainer}>
         <Image style={styles.image} source={{uri: card.product.img}} />
-        <View>
-          <Text> {card.product.name}</Text>
-          <Text> 200 000</Text>
-          <View style={styles.quantityBtn}>
-            <Button title="+" />
-            <Text>{card.quantity}</Text>
-            <Button title="-" onPress={this.decreaseQuantity} />
+
+        <View style={styles.wrapper}>
+          <View style={styles.description}>
+            <Text> {card.product.name}</Text>
+            <Text> 200 000</Text>
+          </View>
+
+          <View style={styles.total}>
+            <View style={styles.quantityView}>
+              <TouchableOpacity style={{padding: 5}}>
+                <View style={styles.quantityBtn}>
+                  <Text style={styles.sub}>-</Text>
+                </View>
+              </TouchableOpacity>
+
+              <Text>{card.quantity}</Text>
+
+              <TouchableOpacity
+                onPress={this.decreaseQuantity}
+                style={{padding: 5}}>
+                <View style={styles.quantityBtn}>
+                  <Text style={styles.plus}>+</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -39,16 +60,50 @@ export class CardItem extends Component {
 const styles = StyleSheet.create({
   cardItemContainer: {
     flexDirection: 'row',
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  wrapper: {
+    flexDirection: 'row',
+    width: width * 0.7,
+    justifyContent: 'space-between',
+  },
+
+  description: {
+    justifyContent: 'center',
+    paddingLeft: '5%',
+  },
+
+  total: {
+    justifyContent: 'center',
+    paddingRight: '10%',
   },
 
   image: {
-    width: 100,
+    width: width * 0.3,
     height: 80,
   },
 
-  quantityBtn: {
+  quantityView: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+
+  quantityBtn: {
+    borderRadius: 50,
+    backgroundColor: 'orange',
+    width: 35,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  sub: {
+    fontSize: 30,
+  },
+
+  plus: {
+    fontSize: 25,
   },
 });
 
