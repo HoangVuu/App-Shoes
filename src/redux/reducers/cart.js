@@ -39,8 +39,6 @@ const reducer = (state = initialState, action) => {
     }
 
     case 'DECREASE_QUANTITY': {
-      console.log('111');
-      console.log(action.payload.id);
       //tim vị trí sp muốn giam số lượng.
       const index = state.findIndex(item => item.product.id === action.payload);
       // state[index].quantity++;
@@ -54,7 +52,7 @@ const reducer = (state = initialState, action) => {
     }
 
     case 'REMOVE_TO_CART': {
-      console.log(action.payload.id);
+      console.log('id', action.payload);
       //tim vị trí sp muốn xoa.
       const index = state.findIndex(item => item.product.id === action.payload);
       state.splice(index, 1);
